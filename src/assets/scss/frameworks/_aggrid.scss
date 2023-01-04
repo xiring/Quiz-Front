@@ -1,0 +1,11 @@
+.ag {
+  &-header {
+    &-cell {
+      background-color: $primary-50;
+
+      &-text {
+        color: $white;
+      }
+    }
+  }
+}

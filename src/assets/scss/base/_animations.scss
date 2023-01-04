@@ -1,0 +1,41 @@
+.animate {
+  animation-duration: 0.4s;
+  -webkit-animation-duration: 0.4s;
+  animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-2rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(1.5rem);
+    opacity: 1;
+  }
+  0% {
+    transform: translateY(-2rem);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    -webkit-transform: transform;
+    -webkit-opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(1.5rem);
+    -webkit-opacity: 1;
+  }
+  0% {
+    -webkit-transform: translateY(-2rem);
+    -webkit-opacity: 0;
+  }
+}
+
+.slideIn {
+  -webkit-animation-name: slideIn;
+  animation-name: slideIn;
+}

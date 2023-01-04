@@ -1,0 +1,45 @@
+// alert-theme
+.alert {
+  display: flex;
+  & > {
+    i {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+@each $label, $value in $alert-theme {
+  .alert-#{$label} {
+    @if $label== "blue" {
+      @include alert($blue-50, $blue-900, $blue-400, $blue-600);
+    } @else if $label== "yellow" {
+      @include alert($yellow-50, $yellow-900, $yellow-400, $yellow-600);
+    } @else if $label== "red" {
+      @include alert($red-50, $red-900, $red-400, $red-600);
+    } @else {
+      @include alert($green-50, $green-900, $green-400, $green-600);
+    }
+  }
+}
+
+.strip-alert {
+  @extend .alert;
+  padding: 0.5rem 1rem;
+  border: unset;
+
+  .align-center {
+    i,
+    span,
+    svg {
+      height: 1.125rem;
+    }
+  }
+  .btn-icon-only {
+    padding: 0.125rem;
+    height: unset;
+    width: unset;
+    line-height: 100%;
+  }
+  // @include flex(center, center);
+}

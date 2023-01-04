@@ -1,0 +1,84 @@
+// mixin for alert
+@mixin alert($background, $color, $border-color, $icon-color) {
+  background-color: $background;
+  border-color: $border-color;
+  p {
+    color: $color;
+  }
+  i,
+  span {
+    color: $icon-color;
+  }
+
+  svg {
+    path {
+      fill: $icon-color;
+    }
+  }
+}
+
+@mixin scrollable($thumb: $cool-gray-400, $track: $cool-gray-300) {
+  overflow: auto;
+  //padding-right: .5rem;
+  /* width */
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: $track;
+    border-radius: 4px;
+  }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: rgba($thumb, 0.8);
+    border-radius: 4px;
+    // cursor: pointer;
+  }
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: $thumb;
+    cursor: pointer;
+  }
+}
+
+//sidebar expanded state
+@mixin sidebar-expanded-state {
+}
+
+@mixin sidebar-collapsed-state {
+}
+
+// button outline
+@mixin button-outline-variant(
+  $color,
+  $color-hover,
+  $active-background,
+  $active-border
+) {
+  background-color: $active-background;
+  color: $color;
+  border-color: $active-border;
+  [class^="ic-"],
+  [class*=" ic-"] {
+    color: $color;
+  }
+  &:hover {
+    background-color: rgba($color, 0.16);
+    color: $color;
+    border-color: rgba($color, 0.16);
+    [class^="ic-"],
+    [class*=" ic-"] {
+      color: $color-hover;
+    }
+  }
+}
+
+//flex
+@mixin flex($vertical: null, $horizontal: null, $direction: null) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $vertical;
+  justify-content: $horizontal;
+}

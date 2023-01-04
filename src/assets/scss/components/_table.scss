@@ -1,0 +1,109 @@
+.table {
+  margin: 0;
+  tbody {
+    tr,
+    .tr {
+      td,
+      .td {
+        vertical-align: middle;
+        &.action {
+          display: flex;
+          gap: 0.5rem;
+        }
+      }
+    }
+  }
+
+  &-01 {
+    position: relative;
+    td,
+    th {
+      font-size: 0.875rem;
+      white-space: nowrap;
+      padding: 0.625rem 0.75rem;
+    }
+    thead {
+      font-weight: 600;
+      border: none;
+      position: sticky;
+      top: 0;
+      left: 0;
+      th {
+        color: $white;
+        background-color: #077a97;
+        border: none;
+        vertical-align: middle;
+        position: sticky;
+        top: 0;
+        z-index: 99;
+        &:first-child {
+          border-radius: $default-radius 0 0 0;
+        }
+        &:last-child {
+          border-radius: 0 $default-radius 0 0;
+        }
+      }
+    }
+    tbody {
+      border-top: unset !important;
+      tr {
+        border: unset;
+        td {
+          border-bottom: 1px solid $cool-gray-300;
+          color: $cool-gray-900;
+          vertical-align: middle;
+          background-color: $white;
+          a {
+            color: $blue;
+          }
+
+          .btn {
+            &-sm {
+              line-height: 100%;
+            }
+
+            &-icon-only {
+              &:hover {
+                i {
+                  color: $danger !important;
+                }
+              }
+              &:focus {
+                box-shadow: unset;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-footer {
+    padding: 0.75rem;
+    background-color: $white;
+    @include flex(center, space-between);
+    gap: 1rem;
+    border-bottom: 1px solid $cool-gray-300;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    .form-select-custom {
+      max-width: 3.5rem;
+      padding: 0.25rem;
+      border: 1px solid $border-color;
+      border-radius: $default-radius;
+      margin: 0 0.75rem;
+      &:focus-visible {
+        border: 1px solid $blue-600;
+        outline: unset;
+        box-shadow: $btn-focus-shadow-blue;
+      }
+    }
+    .pagination {
+      gap: 0.25rem;
+    }
+    .page-link {
+      border: unset;
+    }
+  }
+}

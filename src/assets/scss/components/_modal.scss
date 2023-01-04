@@ -1,0 +1,14 @@
+.modal {
+  &-password {
+    .modal {
+      &-title {
+        color: $cool-gray-900;
+      }
+      &-body {
+        label {
+          color: $cool-gray-900;
+        }
+      }
+    }
+  }
+}

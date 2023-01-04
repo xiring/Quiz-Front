@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import "abstracts/variables";
+@import "./frameworks/cbootstrap";
+// @import "./frameworks/overrides";
+@import "abstracts/mixins";
+
+@import "base/base";
+@import "base/animations";
+@import "base/typography";
+@import "base/utilities";
+
+@import "./frameworks/multiselect";
+@import "./frameworks/aggrid";
+
+@import "layouts/app";
+@import "layouts/header";
+@import "layouts/sidebar";
+@import "layouts/login";
+
+@import "components/flex";
+@import "components/card";
+@import "components/list";
+@import "components/buttons";
+@import "components/form";
+@import "components/section";
+@import "components/alert";
+@import "components/image";
+@import "components/breadcrumb";
+@import "components/emptyStates";
+@import "components/table";
+@import "components/offcanvas";
+@import "components/dropdown";
+// @import "components/modal";

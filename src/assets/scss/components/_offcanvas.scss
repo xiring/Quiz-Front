@@ -1,0 +1,26 @@
+.offcanvas {
+  &-01 {
+    .offcanvas {
+      &-header {
+        background-color: $white;
+        box-shadow: inset 0px -1px 0px #ced4da;
+        padding: 1rem 1.5rem;
+      }
+
+      &-body {
+        padding: 1.5rem;
+
+        .form-switch {
+          .form-check-input {
+            margin-top: 0.5rem;
+          }
+        }
+      }
+
+      &-footer {
+        padding: 1.5rem;
+        @include flex(center, flex-end);
+      }
+    }
+  }
+}

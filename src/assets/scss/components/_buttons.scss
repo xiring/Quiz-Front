@@ -1,0 +1,339 @@
+@mixin btn(
+  $background,
+  $color,
+  $hover-background-color,
+  $hover-color,
+  $focus-color,
+  $focus-shadow,
+  $focus-clicked-shadow
+) {
+  background-color: $background;
+  color: $color;
+  &:hover {
+    background-color: $hover-background-color;
+    color: $hover-color;
+  }
+  &:focus {
+    background-color: $background;
+    color: $color;
+    box-shadow: $focus-clicked-shadow;
+  }
+  &:active {
+    background: $background;
+    box-shadow: $focus-shadow;
+  }
+  &:active:focus {
+    box-shadow: $focus-shadow;
+  }
+}
+
+@mixin btn-outline(
+  $border-color,
+  $color,
+  $hover-background,
+  $hover-color,
+  $focus-shadow,
+  $focus-clicked-shadow
+) {
+  color: $color;
+  border-color: $border-color;
+  &:hover {
+    background-color: $hover-background;
+    color: $hover-color;
+  }
+  &:focus {
+    box-shadow: $focus-shadow;
+    background-color: $hover-background;
+    color: $hover-color;
+  }
+  &:active {
+    background-color: $hover-background;
+    color: $hover-color;
+    box-shadow: $focus-clicked-shadow;
+  }
+  &:active:focus {
+    box-shadow: $focus-clicked-shadow;
+  }
+}
+
+@mixin btn-ghost(
+  $color,
+  $hover-background,
+  $focus-shadow,
+  $focus-clicked-background,
+  $focus-clicked-color
+) {
+  color: $color;
+  &:hover {
+    background-color: $hover-background;
+    color: $color;
+  }
+  &:focus {
+    background-color: $hover-background;
+    box-shadow: $focus-shadow;
+  }
+  &:active {
+    background: $focus-clicked-background;
+    color: $focus-clicked-color;
+    box-shadow: unset;
+  }
+  &:active:focus {
+    background: $focus-clicked-background;
+    color: $focus-clicked-color;
+    box-shadow: unset;
+  }
+}
+
+.btn-xs {
+  @include button-size(
+    $btn-padding-y-xs,
+    $btn-padding-x-xs,
+    $btn-font-size-xs,
+    $btn-border-radius-xs
+  );
+}
+
+// This is the mixin for the base button
+@each $label, $value in $btn-theme {
+  .btn-#{$label} {
+    @if $label== "blue" {
+      @include btn(
+        $blue-800,
+        $white,
+        $blue-900,
+        $white,
+        $blue-800,
+        $btn-focus-clicked-blue,
+        $btn-focus-shadow-blue
+      );
+    } @else if $label== "yellow" {
+      @include btn(
+        $yellow-500,
+        $yellow-800,
+        $yellow-700,
+        $white,
+        $blue-800,
+        $btn-focus-clicked-yellow,
+        $btn-focus-shadow-yellow
+      );
+    } @else if $label== "red" {
+      @include btn(
+        $red-600,
+        $white,
+        $red-800,
+        $white,
+        $blue-800,
+        $btn-focus-clicked-red,
+        $btn-focus-shadow-red
+      );
+    } @else if $label== "green" {
+      @include btn(
+        $green-600,
+        $white,
+        $green-900,
+        $white,
+        $blue-800,
+        $btn-focus-clicked-red,
+        $btn-focus-shadow-green
+      );
+    } @else if $label== "gray" {
+      @include btn(
+        $cool-gray-300,
+        $cool-gray-700,
+        $cool-gray-400,
+        $cool-gray-700,
+        $cool-gray-700,
+        $btn-focus-clicked-gray,
+        $btn-focus-shadow-gray
+      );
+    }
+  }
+  .btn-outline-#{$label} {
+    @if $label== "blue" {
+      @include btn-outline(
+        $blue-800,
+        $blue-800,
+        $blue-800,
+        $white,
+        $btn-focus-shadow-blue,
+        $btn-focus-clicked-blue
+      );
+    } @else if $label== "yellow" {
+      @include btn-outline(
+        $yellow-500,
+        $yellow-900,
+        $yellow-500,
+        $yellow-900,
+        $btn-focus-shadow-yellow,
+        $btn-focus-clicked-yellow
+      );
+    } @else if $label== "red" {
+      @include btn-outline(
+        $red-600,
+        $red-600,
+        $red-600,
+        $white,
+        $btn-focus-shadow-red,
+        $btn-focus-clicked-red
+      );
+    } @else {
+      @include btn-outline(
+        $green-700,
+        $green-700,
+        $green-700,
+        $white,
+        $btn-focus-shadow-green,
+        $btn-focus-clicked-green
+      );
+    }
+  }
+  .btn-ghost-#{$label} {
+    @if $label== "blue" {
+      @include btn-ghost(
+        $blue-800,
+        $blue-50,
+        $btn-focus-shadow-blue,
+        $blue-100,
+        $blue-900
+      );
+    } @else if $label== "yellow" {
+      @include btn-ghost(
+        $yellow-900,
+        $yellow-50,
+        $btn-focus-shadow-yellow,
+        $yellow-200,
+        $yellow-900
+      );
+    } @else if $label== "red" {
+      @include btn-ghost(
+        $red-600,
+        $red-50,
+        $btn-focus-shadow-red,
+        $red-100,
+        $red-800
+      );
+    } @else {
+      @include btn-ghost(
+        $green-700,
+        $green-50,
+        $btn-focus-shadow-green,
+        $green-100,
+        $green-900
+      );
+    }
+  }
+}
+
+.btn {
+  &-secondary,
+  &-success,
+  &-danger {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+  &-icon {
+    line-height: $btn-line-height;
+    [class^="ic-"],
+    [class*=" ic-"],
+    svg {
+      vertical-align: middle;
+      font-size: 1.125rem;
+    }
+    &-only {
+      padding: unset;
+      &:focus {
+        box-shadow: unset;
+      }
+    }
+  }
+  &-filter {
+    color: $indigo-500;
+    background-color: $gray-200;
+    &:hover {
+      color: $indigo;
+    }
+  }
+  &-circle {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 0;
+    border-radius: 50%;
+    svg {
+      fill: $indigo;
+    }
+  }
+  &-bulb {
+    background-image: radial-gradient(
+      50% 50% at 50% 50%,
+      #8eb3f5 0%,
+      #2264d1 75.52%
+    );
+    height: 4rem;
+    width: 4rem;
+    border: none;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    &:focus {
+      outline: none;
+    }
+    svg,
+    i {
+      color: white;
+      font-size: 26px;
+    }
+    @include media-breakpoint-down(lg) {
+      right: 1rem;
+      bottom: 5.5rem;
+      width: 3rem;
+      height: 3rem;
+    }
+    @include media-breakpoint-down(sm) {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+  }
+  &-actions {
+    display: flex;
+    flex-wrap: wrap;
+    .btn {
+      background-color: $gray-200;
+      color: $gray-700;
+      &:hover {
+        background-color: $green;
+        color: white;
+      }
+    }
+  }
+  &-trash {
+    background-color: rgba($red, 0.1);
+    color: $red;
+    &:hover {
+      background-color: $red;
+      color: white;
+    }
+  }
+  &-download {
+    background-color: rgba($blue, 0.1);
+    color: $blue;
+    &:hover {
+      background-color: $blue;
+      color: white;
+    }
+  }
+
+  &-block {
+    @include flex(center, center);
+    width: 100%;
+  }
+  &-small {
+    padding: 4px 8px;
+  }
+}

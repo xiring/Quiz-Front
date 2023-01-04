@@ -1,0 +1,86 @@
+.page {
+    &-navigation {
+        position: sticky;
+        top: 0;
+        ul {
+            li {
+                margin-top: 0.25rem;
+            }
+        }
+        @include media-breakpoint-down(lg) {
+            display: none;
+        }
+    }
+    &-header {
+        @include flex(center, space-between);
+        background-color: $white;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12);
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+.section {
+    &-login {
+        background-image: url(assets/image/background-login.png);
+        height: 100vh;
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 2;
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient( 45deg, rgb(12, 104, 176) 10%, rgb(0, 155, 107) 100%);
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.9;
+        }
+        .abs-bg-gray {
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                height: 200vh;
+                background: #ecf1f4;
+                left: 0;
+                width: 100%;
+                z-index: -1;
+                top: -120%;
+            }
+        }
+        .position-top {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(10%);
+        }
+    }
+    &-error-404 {
+        background-image: url(assets/image/background-error.png);
+        height: 100vh;
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 2;
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient( 45deg, rgb(12, 104, 176) 10%, rgb(0, 155, 107) 100%);
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.7;
+        }
+    }
+}

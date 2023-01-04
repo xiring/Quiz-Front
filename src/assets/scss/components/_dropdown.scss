@@ -1,0 +1,106 @@
+.dropdown {
+  &-01 {
+    .btn-success {
+      &:focus {
+        color: $white;
+      }
+    }
+    .dropdown {
+      &-menu {
+        @extend .animate;
+        @extend .slideIn;
+        padding: 1rem;
+        box-shadow: 0px 6px 16px #ced4da;
+        border-radius: 0.5rem;
+        li {
+          padding: 0.25rem 0.5rem;
+          font-size: 0.875rem;
+          cursor: pointer;
+          .form-check {
+            min-height: unset;
+            margin-bottom: 0;
+            &-label {
+              margin-bottom: 0;
+            }
+          }
+
+          &:hover {
+            background-color: $cool-gray-200;
+            color: $primary;
+          }
+        }
+      }
+    }
+    &.filter {
+      .dropdown {
+        &-menu {
+          width: 300px;
+        }
+      }
+    }
+
+    &.notification {
+      margin-right: 1rem;
+      & > a {
+        width: 1.75rem;
+        height: 1.75rem;
+        background-color: $white;
+        @include flex(center, center);
+        border-radius: 50%;
+
+        i {
+          color: $secondary;
+          font-size: 1.25rem;
+        }
+
+        &.active {
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            top: 6px;
+            right: 6px;
+            background-color: $red;
+          }
+        }
+      }
+
+      .dropdown-menu {
+        @include scrollable;
+        width: 320px;
+        max-height: 480px;
+        padding-top: unset;
+        & > div {
+          &.flex-center-between {
+            position: sticky;
+            top: 0;
+            left: 0;
+            background-color: $white;
+            width: 100%;
+            z-index: 1;
+            padding: 1rem 0;
+          }
+        }
+      }
+    }
+  }
+
+  &-item {
+    @include rfs(14px);
+    font-weight: 500;
+    &:focus {
+      outline: none;
+    }
+  }
+  &-menu {
+    box-shadow: 0px 8px 16px rgba(90, 91, 106, 0.16),
+      0px 4px 8px rgba(58, 58, 68, 0.16);
+  }
+  &-text {
+    @include rfs(16px);
+    color: $gray-600;
+  }
+}
