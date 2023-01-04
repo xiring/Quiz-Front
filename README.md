@@ -1,4 +1,4 @@
-# quiz
+# quiz frontend
 
 ## Project Setup
 
