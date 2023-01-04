@@ -7,10 +7,7 @@ export const useStore = defineStore("auth", {
     id: "",
     token: "",
     user: "",
-    is_super: false,
-    permissions: [],
     roles: [],
-    isAdminUser: "",
   }),
   actions: {
     getInfo() {
@@ -23,14 +20,13 @@ export const useStore = defineStore("auth", {
               reject("Verification failed, please Login again.");
             }
 
-            const { roles, name, permissions, id, is_super } = data;
+            const { roles, name, permissions, id } = data;
             // roles must be a non-empty array
             if (!roles || roles.length <= 0) {
               reject("getInfo: roles must be a non-null array!");
             }
             this.id = id;
             this.user = name;
-            this.is_super = !!is_super;
             this.permissions = permissions;
             this.roles = roles;
             resolve(data);
@@ -72,7 +68,6 @@ export const useStore = defineStore("auth", {
       this.id = "";
       this.token = "";
       this.user = "";
-      this.is_super = false;
       this.permissions = [];
       this.roles = [];
     },
@@ -100,7 +95,7 @@ export const useStore = defineStore("auth", {
         return false;
       }
     },
-    checkMunicipalityRole() {
+    checkStudentRole() {
       if (this.roles.includes("Student")) {
         return true;
       } else {

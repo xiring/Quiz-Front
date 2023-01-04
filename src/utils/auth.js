@@ -28,5 +28,5 @@ export function checkPermissions(routePermissions) {
 
 export function checkSuperUser() {
     let user = localStorage.getItem('user') ?? '';
-    return JSON.parse(user).is_super === 1;
+    return JSON.parse(user).user_type === 'teacher';
 }
